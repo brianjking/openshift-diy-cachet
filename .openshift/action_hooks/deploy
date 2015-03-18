@@ -8,6 +8,7 @@ BUILD_DIR=${OPENSHIFT_TMP_DIR}/build
 NGINX_DIR=${OPENSHIFT_RUNTIME_DIR}/nginx/
 PHP_DIR=${OPENSHIFT_RUNTIME_DIR}/php5/
 TEMPLATE_DIR=${OPENSHIFT_REPO_DIR}/.openshift/tmpl
+COMPOSER_HOME=${$OPENSHIFT_DATA_DIR}/.composer
 
 umask 077
 
@@ -28,3 +29,12 @@ rm -rf ${BUILD_DIR}
 bash_profile=${OPENSHIFT_DATA_DIR}/.bash_profile
 echo "Copy bash profile."
 cp ${TEMPLATE_DIR}/bash_profile.tmpl ${bash_profile}
+
+if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+    curl -s https://getcomposer.org/installer | php -- --install-dir=$OPENSHIFT_DATA_DIR
+else
+	php $OPENSHIFT_DATA_DIR/composer.phar self-update
+fi
+ 
+( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; php $OPENSHIFT_DATA_DIR/composer.phar install )
+
