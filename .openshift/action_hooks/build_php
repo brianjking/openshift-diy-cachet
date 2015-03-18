@@ -103,6 +103,7 @@ function check_php() {
     if [[ ! -e  ${php_bin} ]]; then
         echo "PHP not installed."
         install_php
+        install_composer
     else
         local php_version=`${php_bin} -r "echo phpversion();"`
 
@@ -168,7 +169,7 @@ function check_pecl() {
         echo "PHP pecl ${1} up to date, version: ${2}."
     fi
 }
-function install composer() {
+function install_composer() {
     if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
         curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
     else
