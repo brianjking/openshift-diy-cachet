@@ -168,3 +168,13 @@ function check_pecl() {
         echo "PHP pecl ${1} up to date, version: ${2}."
     fi
 }
+function install composer() {
+    if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+        curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
+    else
+        ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar self-update
+    fi
+ 
+( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar install )
+
+}
