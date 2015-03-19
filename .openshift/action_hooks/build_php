@@ -179,7 +179,7 @@ function check_pecl() {
 function install_composer() {
     curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
  
-( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar install --no-dev -o )
+#( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar install --no-dev -o )
 
 }
 function update_composer() {
