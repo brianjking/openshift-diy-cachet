@@ -113,6 +113,13 @@ function check_php() {
         else
             echo "PHP up to date, version: ${php_version}."
         fi
+        if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
+            echo "Composer not installed."
+            install_composer
+       else
+            echo "Composer auto-updating."
+            update_composer
+       fi
     fi
 }
 
@@ -170,12 +177,11 @@ function check_pecl() {
     fi
 }
 function install_composer() {
-    if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
-        curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
-    else
-        ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar self-update
-    fi
+    curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=$OPENSHIFT_DATA_DIR
  
-( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar install )
+( unset GIT_DIR ; cd $OPENSHIFT_REPO_DIR ; ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar install --no-dev -o )
 
+}
+function update_composer() {
+    ${ROOT_DIR}/php5/bin/php $OPENSHIFT_DATA_DIR/composer.phar self-update
 }
