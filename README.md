@@ -93,3 +93,4 @@ Some articles that mention how you can use this repo and other related articles:
 * [How to Run Nginx PHP-FPM under OpenShift](https://www.openshift.com/blogs/how-to-run-nginx-php-fpm-under-openshift) a cartridge created by [Getup Cloud](http://getupcloud.com/index_en.html)
  
 If you wrote a article about openshit and nginx+php please let me know so I can add it to the list.
+e
