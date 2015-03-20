@@ -70,8 +70,7 @@ function install_php() {
             --enable-sysvshm \
             --enable-sysvmsg \
             --enable-intl \
-            --enable-pcntl \
-            --enable-opcache
+            --enable-pcntl 
     fi
 
     echo "Compiling PHP."
