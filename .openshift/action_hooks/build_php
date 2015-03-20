@@ -70,6 +70,7 @@ function install_php() {
             --enable-sysvshm \
             --enable-sysvmsg \
             --enable-intl \
+            --enable-opcache \
             --enable-pcntl 
     fi
 
