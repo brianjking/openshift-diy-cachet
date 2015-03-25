@@ -31,7 +31,7 @@ BISON_VERSION='2.7.1'
 
 declare -A PHP_PECL
 declare -A PHP_PECL_CONFIGURE
-PHP_PECL=( ["mongo"]='1.6.4' ["apcu"]='4.0.7' )
+PHP_PECL=( ["apcu"]='4.0.7' )
 PHP_PECL_CONFIGURE=( )
 
 # Setup dir references
@@ -48,6 +48,7 @@ source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_util
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_nginx
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_php_libs
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_php
+source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_cachet
 
 # Check nginx
 check_nginx
@@ -63,3 +64,6 @@ done
 # Extra
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_node
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_phalcon
+
+# Cachet
+install_cachet

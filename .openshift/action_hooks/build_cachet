@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function install_cachet() {
+	# Copy over local env conf
+	if  [ ! -f "${OPENSHIFT_REPO_DIR}/web/.env.local.php" ]; then
+		cp ${OPENSHIFT_REPO_DIR}/web/env.local.php ${OPENSHIFT_REPO_DIR}/web/.env.local.php
+	fi
+
+	# Install missing deps
+	cd ${OPENSHIFT_REPO_DIR}/web/
+	${OPENSHIFT_DATA_DIR}/composer.phar install --no-dev -o --prefer-source
+
+	# Migrate Database
+	php artisan migrate
+
+}
