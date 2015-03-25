@@ -3,7 +3,7 @@
 function install_cachet() {
 	# Copy over local env conf
 	if  [ ! -f "${OPENSHIFT_REPO_DIR}/web/.env.local.php" ]; then
-		cp ${OPENSHIFT_REPO_DIR}/web/env.local.php ${OPENSHIFT_REPO_DIR}/web/.env.local.php
+		cp ${OPENSHIFT_REPO_DIR}/env.local.php ${OPENSHIFT_REPO_DIR}/web/.env.local.php
 	fi
 
 	# Install missing deps
