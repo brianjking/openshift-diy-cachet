@@ -65,5 +65,8 @@ done
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_node
 source ${OPENSHIFT_REPO_DIR}/.openshift/action_hooks/build_phalcon
 
-# Cachet
+# Start MySQL
+${OPENSHIFT_HOMEDIR}/mysql/bin/control start
+
+# Install Cachet
 install_cachet
