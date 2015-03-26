@@ -16,14 +16,16 @@ To install, follow these steps:
   git clone https://github.com/StartledPhoenix/openshift-diy-cachet.git
   ```
 4. Update the submodules
-```
-git submodule init
-git submodule update
-```
+
+  ```
+  git submodule init
+  git submodule update
+  ```
 5. Go to your application page on OpenShift, and copy the text under 'Source Code', and run the below (replace ssh://.... with your own text)
-```
-git remote add openshift ssh://....
-```
+
+  ```
+  git remote add openshift ssh://....
+  ```
 6. Run `git push --force "openshift" master:master`
 7. Wait for build to finish (This may take at least an hour). See below for what to do when the build times out.
 8. Open http://appname-namespace.rhcloud.com/ to verify
