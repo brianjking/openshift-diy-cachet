@@ -1,6 +1,6 @@
 # StartledPhoenix/openshift-diy-cachet
 
-This is a DIY repository for running [Cachet](https://cachethq.io/) on OpenShift, based on boekkooi/openshift-diy-nginx-php
+This is a DIY repository for running [Cachet](https://cachethq.io/) on OpenShift, based on [boekkooi/openshift-diy-nginx-php](https://github.com/boekkooi/openshift-diy-nginx-php)
 
 More information about openshift: https://openshift.redhat.com/
 
