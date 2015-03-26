@@ -108,6 +108,11 @@ http {
         location / {
             index  index.html  index.htm  index.php ;
 
+	# Redirect to HTTPS. Uncomment to redirect HTTP requests to HTTPS.
+	#if ($http_x_forwarded_proto != "https") {
+	#	rewrite ^ https://$host$request_uri? permanent;
+	#}
+
             try_files $uri $uri/ @rewrites;
         }
 

@@ -9,18 +9,31 @@ More information about openshift: https://openshift.redhat.com/
 To install, follow these steps:
 
 1. Create a new Openshift "Do-It-Yourself" application
-2. Clone this repository
-3. Add a new remote "openshift" (You can find the URL to your git repository
-   on the Openshift application page)
-4. Run `git push --force "openshift" master:master`
-5. SSH into your gear
-7. Wait for build to finish (This may take at least an hour)
+2. Add the MySQL Cartridge to the application
+3. Clone this repository (You might fork it if you want)
+```
+git clone https://github.com/StartledPhoenix/openshift-diy-cachet.git
+```
+4. Update the submodules
+```
+git submodule init
+git submodule update
+```
+5. Go to your application page on OpenShift, and copy the text under 'Source Code', and run the below (replace ssh://.... with your own text)
+```
+git remote add openshift ssh://....
+```
+6. Run `git push --force "openshift" master:master`
+7. Wait for build to finish (This may take at least an hour). See below for what to do when the build times out.
 8. Open http://appname-namespace.rhcloud.com/ to verify
 
 #### Openshift disconnects on build
 This seems to be a problem within openshift (see https://www.openshift.com/forums/openshift/openshift-build-timeout).
 
 To resume the build, first make an arbitary change to your local repo (e.g. add some text to README.md), commit that change and then do another `git push --force "openshift" master:master`.
+
+## Additional
+For automatic redirection to HTTPS, uncomment the block at line 112 in .openshift/tmpl/nginx.conf.tmpl
 
 ## Thanks
 
