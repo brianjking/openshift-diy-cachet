@@ -11,6 +11,7 @@ To install, follow these steps:
 1. Create a new Openshift "Do-It-Yourself" application
 2. Add the MySQL Cartridge to the application
 3. Clone this repository (You might fork it if you want)
+  
   ```
   git clone https://github.com/StartledPhoenix/openshift-diy-cachet.git
   ```
