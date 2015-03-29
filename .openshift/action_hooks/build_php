@@ -150,8 +150,8 @@ function check_pecl() {
     fi
 }
 function install_composer() {
-    curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=${ROOT_DIR}/php5/bin
+    curl -s https://getcomposer.org/installer | ${ROOT_DIR}/php5/bin/php -- --install-dir=${ROOT_DIR}/php5/bin --filename=composer
 }
 function update_composer() {
-    ${ROOT_DIR}/php5/bin/php ${ROOT_DIR}/php5/bin/composer.phar self-update
+    ${ROOT_DIR}/php5/bin/php ${ROOT_DIR}/php5/bin/composer self-update
 }

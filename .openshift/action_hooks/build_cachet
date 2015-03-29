@@ -8,7 +8,7 @@ function install_cachet() {
 
 	# Install missing deps
 	cd ${OPENSHIFT_REPO_DIR}/web/
-	${OPENSHIFT_DATA_DIR}/composer.phar install --no-dev -o --prefer-source
+	${ROOT_DIR}/php5/bin/composer install --no-dev -o --prefer-source
 
 	# Migrate Database
 	php artisan migrate
