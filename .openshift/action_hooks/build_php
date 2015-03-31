@@ -44,7 +44,7 @@ function install_php() {
             --enable-sockets \
             --enable-opcache \
             --with-readline \
-            --with-mbstring \
+            --enable-mbstring \
             --enable-pcntl 
     fi
 
