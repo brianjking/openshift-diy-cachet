@@ -35,8 +35,7 @@ This seems to be a problem within openshift (see https://www.openshift.com/forum
 
 To resume the build, first make an arbitary change to your local repo (e.g. add some text to README.md), commit that change and then do another `git push --force "openshift" master:master`.
 
-## Additional
-For automatic redirection to HTTPS, uncomment the block at line 112 in .openshift/tmpl/nginx.conf.tmpl
+Sometimes, the build cannot be resumed. In this case, simply recreate the application.
 
 ## Thanks
 
